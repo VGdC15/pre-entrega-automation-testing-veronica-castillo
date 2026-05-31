@@ -153,6 +153,9 @@ y podrá abrirse desde cualquier navegador.
 * Acceder al carrito.
 * Validar que el producto agregado esté presente.
 
+### Reporte HTML
+<img width="854" height="515" alt="image" src="https://github.com/user-attachments/assets/613a4243-6b68-4a91-bec9-8d03ff47a991" />
+
 ---
 
 ## 👩‍💻 Autor
