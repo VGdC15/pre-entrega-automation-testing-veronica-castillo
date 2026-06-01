@@ -1,5 +1,5 @@
-from UTILS.driver_factory import crear_driver
-from UTILS.saucedemo_helpers import (
+from utils.driver_factory import crear_driver
+from utils.saucedemo_helpers import (
     login_exitoso,
     validar_url_inventario,
     validar_titulo_inventario,

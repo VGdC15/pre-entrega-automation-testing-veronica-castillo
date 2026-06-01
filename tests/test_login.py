@@ -1,5 +1,5 @@
-from UTILS.driver_factory import crear_driver
-from UTILS.saucedemo_helpers import login_exitoso, validar_url_inventario
+from utils.driver_factory import crear_driver
+from utils.saucedemo_helpers import login_exitoso, validar_url_inventario
 
 
 def test_login_exitoso_saucedemo():
