@@ -13,12 +13,11 @@ def driver():
     chrome_options.add_argument("--disable-dev-shm-usage")
 
     service = Service()
-    driver = webdriver.Chrome(service=service, options=chrome_options)
-    driver.implicitly_wait(5)
+    navegador = webdriver.Chrome(service=service, options=chrome_options)
 
-    yield driver
+    yield navegador
 
-    driver.quit()
+    navegador.quit()
 
 
 @pytest.fixture
