@@ -1,0 +1,27 @@
+{
+  "usuarios": {
+    "valido": {
+      "usuario": "standard_user",
+      "password": "secret_sauce"
+    },
+    "invalidos": [
+      {
+        "id": "credenciales_invalidas",
+        "usuario": "usuario_invalido",
+        "password": "clave_invalida",
+        "mensaje_esperado": "Username and password do not match"
+      },
+      {
+        "id": "usuario_bloqueado",
+        "usuario": "locked_out_user",
+        "password": "secret_sauce",
+        "mensaje_esperado": "Sorry, this user has been locked out"
+      }
+    ]
+  },
+  "checkout": {
+    "nombre": "Veronica",
+    "apellido": "Castillo",
+    "codigo_postal": "1824"
+  }
+}

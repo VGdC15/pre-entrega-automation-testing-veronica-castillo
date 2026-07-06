@@ -3,6 +3,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 
+from utils.data_reader import obtener_datos_prueba
+
 
 @pytest.fixture(scope="function")
 def driver():
@@ -20,33 +22,31 @@ def driver():
     navegador.quit()
 
 
-@pytest.fixture
-def credenciales_validas():
-    return {
-        "usuario": "standard_user",
-        "password": "secret_sauce",
-    }
+@pytest.fixture(scope="session")
+def datos_prueba():
+    """Carga los datos externos de prueba una sola vez por sesión."""
+    return obtener_datos_prueba()
 
 
 @pytest.fixture
-def credenciales_invalidas():
-    return {
-        "usuario": "usuario_invalido",
-        "password": "clave_invalida",
-    }
+def credenciales_validas(datos_prueba):
+    """Devuelve credenciales válidas desde archivo JSON."""
+    return datos_prueba["usuarios"]["valido"]
 
 
 @pytest.fixture
-def usuario_bloqueado():
-    return {
-        "usuario": "locked_out_user",
-        "password": "secret_sauce",
-    }
+def credenciales_invalidas(datos_prueba):
+    """Devuelve el primer set de credenciales inválidas desde archivo JSON."""
+    return datos_prueba["usuarios"]["invalidos"][0]
+
 
 @pytest.fixture
-def datos_checkout():
-    return {
-        "nombre": "Veronica",
-        "apellido": "Castillo",
-        "codigo_postal": "1824",
-    }
+def usuario_bloqueado(datos_prueba):
+    """Devuelve el usuario bloqueado desde archivo JSON."""
+    return datos_prueba["usuarios"]["invalidos"][1]
+
+
+@pytest.fixture
+def datos_checkout(datos_prueba):
+    """Devuelve los datos de checkout desde archivo JSON."""
+    return datos_prueba["checkout"]
